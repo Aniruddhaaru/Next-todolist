@@ -1,6 +1,6 @@
-uncaughtException [Error: EPERM: operation not permitted, open 'D:\Project\to-do-list\.next\'] {
+uncaughtException [Error: EPERM: operation not permitted, open 'D:\Project\to-do-list\.next\trace'] {
   errno: -4048,
   code: 'EPERM',
   syscall: 'open',
-  path: 'D:\\Project\\to-do-list\\.next\'
+  path: 'D:\\Project\\to-do-list\\.next\\trace'
 }
