@@ -51,8 +51,7 @@ async function deleteTodoFromFirestore(todoId) {
     console.error("Error deleting todo", error);
   }
 }
-
-export default function Home() {
+function Home() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -254,3 +253,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;
