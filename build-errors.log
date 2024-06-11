@@ -1,4 +1,4 @@
-uncaughtException [Error: EPERM: operation not permitted, open 'D:\Project\to-do-list\.next\trace'] {
+uncaughtException [Error: EPERM: operation not permitted, open 'D:\Project\to-do-list\.next\'] {
   errno: -4048,
   code: 'EPERM',
   syscall: 'open',
