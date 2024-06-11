@@ -1,0 +1,29 @@
+Error: Minified React error #130; visit https://reactjs.org/docs/error-decoder.html?invariant=130&args[]=undefined&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:74:493)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:74:209)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:70:481)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:70:481)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Xc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:68:409)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:70:210)
+
+Error occurred prerendering page "/app". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: Minified React error #130; visit https://reactjs.org/docs/error-decoder.html?invariant=130&args[]=undefined&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:74:493)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:74:209)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:70:481)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:70:481)
+    at Z (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:76:89)
+    at Xc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:68:409)
+    at Zc (D:\Project\to-do-list\node_modules\react-dom\cjs\react-dom-server.browser.production.min.js:70:210)
+
+> Export encountered errors on following paths:
+	/app
+[?25h
