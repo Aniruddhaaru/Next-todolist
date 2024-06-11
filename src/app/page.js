@@ -31,7 +31,9 @@ async function addTodoToFirebase(title, details, dueDate) {
 
 async function fetchTodosFromFirestore() {
   const todosCollection = collection(db, "todos");
-  const querySnapshot = await getDocs(query(todosCollection, orderBy("createdAt", "desc")));
+  const querySnapshot = await getDocs(
+    query(todosCollection, orderBy("createdAt", "desc"))
+  );
   const todos = [];
   querySnapshot.forEach((doc) => {
     const todoData = doc.data();
@@ -81,10 +83,18 @@ export default function Home() {
         }
       }
     } else {
-      const docRef = await addTodoToFirebase(title, details, dueDate); // Store docRef here
+      const docRef = await addTodoToFirebase(title, details, dueDate);
       if (docRef) {
-        // Manually update todos state with the new todo
-        setTodos(prevTodos => [{ id: docRef.id, title, details, dueDate, createdAt: new Date().toISOString() }, ...prevTodos]);
+        setTodos((prevTodos) => [
+          {
+            id: docRef.id,
+            title,
+            details,
+            dueDate,
+            createdAt: new Date().toISOString(),
+          },
+          ...prevTodos,
+        ]);
         setTitle("");
         setDetails("");
         setDueDate("");
@@ -92,7 +102,6 @@ export default function Home() {
       }
     }
   };
-  
 
   useEffect(() => {
     async function fetchTodos() {
@@ -102,26 +111,29 @@ export default function Home() {
     fetchTodos();
   }, []);
 
- const handleUpdateClick = (todo) => {
-  setTitle(todo.title || "");
-  setDetails(todo.details || "");
-  setDueDate(todo.dueDate || "");
-  setSelectedTodo(todo);
-  setIsUpdateMode(true);
-};
+  const handleUpdateClick = (todo) => {
+    setTitle(todo.title || "");
+    setDetails(todo.details || "");
+    setDueDate(todo.dueDate || "");
+    setSelectedTodo(todo);
+    setIsUpdateMode(true);
+  };
 
   const handleDeleteClick = async (todoId) => {
-    const confirmed = window.confirm("Are you sure you want to delete this todo?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this todo?"
+    );
     if (confirmed) {
       const deletedTodoId = await deleteTodoFromFirestore(todoId);
       if (deletedTodoId) {
-       
-        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== deletedTodoId));
+        setTodos((prevTodos) =>
+          prevTodos.filter((todo) => todo.id !== deletedTodoId)
+        );
         alert("Todo deleted successfully");
       }
     }
   };
-  
+
   return (
     <main className="flex flex-1 min-h-screen flex-col items-center justify-between md:flex-row">
       <section className="flex-1 flex md:flex-col md:justify-start items-center mx-auto">
@@ -201,44 +213,44 @@ export default function Home() {
           </form>
         </div>
       </section>
-
       <section className="md:w1/2 md:max-h-screen overflow-y-auto md:ml-10 mt-20 mx-auto">
         <div className="p-6 md:p-12 mt-10 rounded-lg shadow-xl w-full max-w-lg bg-gray">
           <h2 className="text-center text-2l font-bold leading-9 bg-gray-100">
             Todo List
           </h2>
           <div className="mt-6 space-y-6">
-          {todos.map((todo) => (
-  <div key={todo.id} className="border p-4 rounded-md shadow-md">
-    <h2 className="text-lg font-normal text-gray-500 break-words">
-      {todo.title}
-    </h2>
-    <p className="text-sm text-gray-500">Due Date: {todo.dueDate}</p>
-    <p className="text-gray-700 multiline break-words">
-      {todo.details}
-    </p>
-    <div className="mt-4 space-x-6 flex">
-      <button
-        type="button"
-        className="px-3 py-1 text-sm font-semibold bg-blue-400 hover:bg-blue-500 rounded-md"
-        onClick={() => handleUpdateClick(todo)}
-      >
-        Update
-      </button>
-      <button
-        type="button"
-        className="px-3 py-1 text-sm font-semibold bg-red-400 hover:bg-red-500 rounded-md"
-        onClick={() => handleDeleteClick(todo.id)}
-      >
-        Delete
-      </button>
-    </div>
-  </div>
-))}
-
+            {todos.map((todo) => (
+              <div key={todo.id} className="border p-4 rounded-md shadow-md">
+                <h2 className="text-lg font-normal text-gray-500 break-words">
+                  {todo.title ? todo.title : "Untitled"}
+                </h2>
+                <p className="text-sm text-gray-500">
+                  Due Date: {todo.dueDate ? todo.dueDate : "No Due Date"}
+                </p>
+                <p className="text-gray-700 multiline break-words">
+                  {todo.details ? todo.details : "No Details"}
+                </p>
+                <div className="mt-4 space-x-6 flex">
+                  <button
+                    type="button"
+                    className="px-3 py-1 text-sm font-semibold bg-blue-400 hover:bg-blue-500 rounded-md"
+                    onClick={() => handleUpdateClick(todo)}
+                  >
+                    Update
+                  </button>
+                  <button
+                    type="button"
+                    className="px-3 py-1 text-sm font-semibold bg-red-400 hover:bg-red-500 rounded-md"
+                    onClick={() => handleDeleteClick(todo.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-        </main>
-  );
+    </main>
+  );
 }
